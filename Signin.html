@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <title>SIGNIN</title>
+        <link rel="stylesheet" href="Mystyles1.css">
+        <script>
+            function loginValidation() {
+    var uname = document.myform.username.value;
+    var pass = document.myform.password.value;
+    var gender = document.myform.gender.value;
+    var languages = document.myform.languages;
+    var address = document.myform.address.value;
+    var feedback = document.myform.feedback.value;
+    var pattern = /^[a-zA-Z0-9_-]{3,16}$/;
+    if (uname === null || uname === "") {
+        alert("Name can't be blank");
+        return false;
+    }
+    if (!pattern.test(uname)) {
+        alert("Username can only contain letters, numbers, underscores, and hyphens, and must be between 3 and 16 characters long");
+        return false;
+    }
+    if (uname.length < 3) {
+        alert("Username must be at least 3 characters long");
+        return false;
+    }
+    if (pass.length < 10) {
+        alert("Password must be at least 10 characters long");
+        return false;
+    }
+    var genderChecked = false;
+    for (var i = 0; i < document.myform.gender.length; i++) {
+        if (document.myform.gender[i].checked) {
+            genderChecked = true;
+            break;
+        }
+    }
+    if (!genderChecked) {
+        alert("Please select your gender");
+        return false;
+    }
+    var languageChecked = false;
+    for (var i = 0; i < languages.length; i++) {
+        if (languages[i].checked) {
+            languageChecked = true;
+            break;
+        }
+    }
+    if (!languageChecked) {
+        alert("Please select at least one language");
+        return false;
+    }
+    if (address === null || address === "") {
+        alert("Address can't be blank");
+        return false;
+    }
+    if (feedback === null || feedback === "") {
+        alert("Feedback can't be blank");
+        return false;
+    }
+    return true;
+}
+        </script>
+        <style>
+             body{
+             background-image: url(sky2bg.jpg);
+             background-repeat: no-repeat;
+             background-size: cover;
+             background-attachment:fixed;
+             height:10px;
+             padding:30px;
+           }
+           table form{
+            font-size:50px;
+           }
+           section{
+            border-style:solid;
+            width:500px;  
+            color:black;
+            background-image:url(Aimg.jpg);
+            margin-left:100px;
+            position:relative;
+           }
+           h5{
+            color:black;
+           }
+        </style>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="FlightSearch.html">FlighSearch  </a></li>
+                <li><a href="Contact.html">Contact   </a></li>
+                <li><a href="Signin.html">Signin   </a></li>
+                <li><a href="Login.html">Login   </a></li>
+            </ul>
+        </nav>
+        <section>
+        <center><h2>Signin Form</h2><br></center>
+        <table>
+        <div class="formcontainer">
+        <form name="myform"  action="Login.html"onsubmit="return loginValidation()">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username"><br><br>
+    
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password"><br><br>
+    
+            <label>Gender:</label><br>
+            <input type="radio" name="gender" value="male"> Male<br>
+            <input type="radio" name="gender" value="female"> Female<br><br>
+    
+            <label>Languages:</label><br>
+            <input type="checkbox" name="languages" value="English"> English<br>
+            <input type="checkbox" name="languages" value="Spanish"> Spanish<br>
+            <input type="checkbox" name="languages" value="French"> French<br><br>
+    
+            <label for="address">Address:</label><br>
+            <textarea name="address" id="address" rows="4" cols="50"></textarea><br><br>
+    
+            <label for="feedback">Feedback:</label><br>
+            <textarea name="feedback" id="feedback" rows="4" cols="50"></textarea><br><br>
+            <button type="submit"><h5>Submit</h5></button>
+        </form>
+        </table>
+    </div>
+    </section>
+    </body>
+    <footer>
+        <center><p>&copy; 2024 MyCompany. All rights reserved.</p></center>
+     </footer>
+</html>

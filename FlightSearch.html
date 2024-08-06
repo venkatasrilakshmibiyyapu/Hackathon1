@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <title>FLIGHTSEARCH</title>
+        <link rel="stylesheet" href="Mystyles1.css">
+        <style>
+            body{
+                background-image: url(sky2bg.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment:fixed;
+                height:10px;
+              }
+              font ,h3{
+                color:white;
+              }
+              .main{
+               border-style:solid;
+               width:500px;  
+               color:black;
+               background-image:url(sky2bg.jpg);
+               margin-left:500px;
+               position:relative;
+               align-items:center;
+              }
+            </style>
+    </head>
+    <body>
+        <script>
+            function validateForm() {
+                const form = document.forms['myform'];
+                const origin = form['origin'].value;
+                const destination = form['destination'].value;
+                const departure = form['departure'].value;
+                const returnDate = form['return'].value;
+        
+                if (origin === "") {
+                    alert("Please select an origin.");
+                    form['origin'].focus();
+                    return false;
+                }
+        
+                if (destination === "") {
+                    alert("Please select a destination.");
+                    form['destination'].focus();
+                    return false;
+                }
+        
+
+                if (departure === "") {
+                    alert("Please select a departure date.");
+                    form['departure'].focus();
+                    return false;
+                }
+        
+                
+                if (returnDate === "") {
+                    alert("Please select a return date.");
+                    form['return'].focus();
+                    return false;
+                }
+        
+        
+                if (origin === destination) {
+                    alert("Origin and destination cannot be the same.");
+                    form['origin'].focus();
+                    return false;
+                }
+        
+        
+                if (new Date(returnDate) <= new Date(departure)) {
+                    alert("Return date must be after the departure date.");
+                    form['return'].focus();
+                    return false;
+                }
+        
+                return true;
+            }
+        </script>
+        <section>
+        <nav>
+            <ul>
+                <li><a href="FlightSearch.html">FlightSearch </a></li>
+                <li><a href="Contact.html">Contact   </a></li>
+                <li><a href="Signin.html">Signin   </a></li>
+                <li><a href="Login.html">Login   </a></li>
+            </ul>
+        </nav> 
+        <center><font size="50px">Discover the best places to enjoy your next vacation</font><br></center>
+        <br><br><br>
+        <div class="container">
+            <div class="main">
+                <center>
+                    <font size="40px">Flying From</font><br><br><br>
+                    <form name="myform" action="flightdetails.html" onsubmit="return validateForm()">
+                        <table>
+                            <tr>
+                                <th>
+                                    <h3>Origin:</h3>
+                                    <input list="originList" name="origin" placeholder="Origin">
+                                    <datalist id="originList">
+                                        <option value="Mumbai(BOM)"></option>
+                                        <option value="New Delhi(DEL)"></option>
+                                        <option value="Bengaluru(BLR)"></option>
+                                        <option value="Kolkata(CCU)"></option>
+                                        <option value="India"></option>
+                                        <option value="Maldives"></option>
+                                    </datalist>
+                                </th>
+                                <th></th>
+                                <th>
+                                    <h3>Destination:</h3>
+                                    <input list="destinationList" name="destination" placeholder="Destination">
+                                    <datalist id="destinationList">
+                                        <option value="Mumbai(BOM)"></option>
+                                        <option value="New Delhi(DEL)"></option>
+                                        <option value="Bengaluru(BLR)"></option>
+                                        <option value="Kolkata(CCU)"></option>
+                                        <option value="India"></option>
+                                        <option value="Maldives"></option>
+                                    </datalist>
+                                </th>
+                            </tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr>
+                                <th>
+                                    <h3>Departure:</h3>
+                                    <input type="date" name="departure">
+                                </th>
+                                <th></th>
+                                <th>
+                                    <h3>Return:</h3>
+                                    <input type="date" name="return">
+                                </th>
+                            </tr>
+                        </table><br><br>
+                        <center><input type="submit" value="Book Now"></center>
+                    </form>
+                </center>
+            </div>
+        </div>
+        <footer>
+            <center><p>&copy; 2024 MyCompany. All rights reserved.</p></center>
+         </footer>
+    </body>
+</html>
